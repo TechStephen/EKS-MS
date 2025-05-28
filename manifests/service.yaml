@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ms-service
-  namespace: eks-fargate-ms
+  namespace: qa-eks-fargate-ms
 spec:
   selector:
     app: eks-ms  # This must match your deployment's pod labels

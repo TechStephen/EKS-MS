@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-fe-to-ms
-  namespace: eks-fargate-ms  # Namespace where MS is deployed
+  namespace: qa-eks-fargate-ms  # Namespace where MS is deployed
 spec:
   podSelector: {}  # Targets all pods in this namespace
   ingress:
