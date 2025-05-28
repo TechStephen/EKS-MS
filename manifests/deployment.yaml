@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: eks-ms
-          image: ghcr.io/yourusername/eks-fe:latest
+          image: 767398032512.dkr.ecr.us-east-1.amazonaws.com/eks-app/ms:latest
           ports:
             - containerPort: 8080
           env:

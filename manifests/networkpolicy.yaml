@@ -1,18 +1,15 @@
 apiVersion: networking.k8s.io/v1
-kind: Ingress
+kind: NetworkPolicy
 metadata:
-  name: frontend-ingress
-  annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
+  name: allow-fe-to-ms
+  namespace: eks-fargate-ms  # Namespace where MS is deployed
 spec:
-  rules:
-    - host: 
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: frontend-service
-                port:
-                  number: 80
+  podSelector: {}  # Targets all pods in this namespace
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: eks-fargate-fe  # The label of the FE namespace
+      ports:
+        - protocol: TCP
+          port: 80
