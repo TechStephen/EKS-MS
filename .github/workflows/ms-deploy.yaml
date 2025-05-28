@@ -40,7 +40,7 @@ jobs:
         run: aws eks update-kubeconfig --name qa-eks-cluster --region us-east-1
 
       # Run Namespace Manifest
-      - name: Apply Network Manifests
+      - name: Apply Namespace Manifests
         run: kubectl apply -f manifests/namespace.yaml
 
       # Run Network Policy Manifest
@@ -48,17 +48,13 @@ jobs:
         run: kubectl apply -f manifests/networkpolicy.yaml
 
       # Run Deployment Manifest
-      - name: Apply Network Manifests
+      - name: Apply Deployment Manifests
         run: kubectl apply -f manifests/deployment.yaml
 
       # Run Service Manifest
-      - name: Apply Network Manifests
+      - name: Apply Service Manifests
         run: kubectl apply -f manifests/service.yaml
 
       # Run HPA Manifest
-      - name: Apply Network Manifests
+      - name: Apply HPA Manifests
         run: kubectl apply -f manifests/hpa.yaml
-
-      # Run Ingress Manifest
-      - name: Apply Network Manifests
-        run: kubectl apply -f manifests/ingress.yaml
