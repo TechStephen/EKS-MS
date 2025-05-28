@@ -31,6 +31,6 @@ jobs:
           docker build -t nextjs-docker .
           docker tag nextjs-docker:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:latest
 
-      # Pushes new Docker Image to ECR Repository
+      # Pushes new Docker Image to ECR Repo
       - name: Push Docker image to ECR
         run: docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:latest
